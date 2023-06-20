@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
-import NavBar from '../components/NavBar';
+import { Box } from '@mui/material';
 
 export default function Cotar() {
   return (
-    <>
-      <Head>
-        <title>Cotar - Faça sua cotação aqui</title>
-      </Head>
-      <NavBar />
-      <div>Cotar</div>;
-    </>
+    <Box>
+      <div>Cotar</div>
+    </Box>
   );
 }

@@ -1,10 +1,20 @@
-import { Button, ButtonProps, styled } from '@mui/material';
+import { Login } from '@mui/icons-material';
+import { Box, Button, useTheme } from '@mui/material';
 import { amber } from '@mui/material/colors';
 
-export const VipButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  color: theme.palette.getContrastText(amber[600]),
-  backgroundColor: amber[600],
-  '&:hover': {
-    backgroundColor: amber[800],
-  },
-}));
+export const VipButton = () => {
+  const theme = useTheme();
+  return (
+    <Box
+      sx={{
+        backgroundColor: amber[600],
+        borderRadius: '4px',
+        color: theme.palette.getContrastText(amber[600]),
+        marginLeft: 'auto',
+        ':hover': { backgroundColor: amber[800] },
+      }}
+    >
+      <Button startIcon={<Login />}>ÁREA VIP</Button>
+    </Box>
+  );
+};

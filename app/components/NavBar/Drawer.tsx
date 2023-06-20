@@ -28,7 +28,7 @@ export const pages = [
   },
 ];
 
-const DrawerComp = ({ openDrawer, setOpenDrawer }: any) => {
+const DrawerComp = ({ openDrawer, setOpenDrawer, handleCloseNavMenu }: any) => {
   return (
     <React.Fragment>
       <Drawer
@@ -38,7 +38,10 @@ const DrawerComp = ({ openDrawer, setOpenDrawer }: any) => {
       >
         <List>
           {pages.map((page, index) => (
-            <ListItemButton key={index}>
+            <ListItemButton
+              onClick={() => handleCloseNavMenu(page.link)}
+              key={index}
+            >
               <ListItemIcon>
                 <ListItemText>{page.title}</ListItemText>
               </ListItemIcon>

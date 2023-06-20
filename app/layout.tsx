@@ -4,7 +4,7 @@ import { ThemeContextProvider } from './context/ThemeContextProvider';
 import './globals.css';
 
 import { CssBaseline } from '@mui/material';
-import { Providers } from './storeProvider';
+import { Providers } from './Providers';
 import { PageTabContextProvider } from './context/PageTabContextProvider';
 
 export default function RootLayout({
@@ -21,12 +21,12 @@ export default function RootLayout({
         <link rel='icon' href='/favicon.ico' />
       </head>
       <ThemeContextProvider>
-        <body id='__next' suppressHydrationWarning={true}>
-          <PageTabContextProvider>
+        <PageTabContextProvider>
+          <body id='__next' suppressHydrationWarning={true}>
             <CssBaseline />
             <Providers>{children}</Providers>
-          </PageTabContextProvider>
-        </body>
+          </body>
+        </PageTabContextProvider>
       </ThemeContextProvider>
     </html>
   );

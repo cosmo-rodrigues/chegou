@@ -5,7 +5,7 @@ import React from 'react';
 import theme, { getDesignTokens } from '../style/theme';
 
 export const useColorTheme = () => {
-  const [mode, setMode] = React.useState<PaletteMode>('dark');
+  const [mode, setMode] = React.useState<PaletteMode>('light');
 
   const toggleColorMode = () =>
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));

@@ -1,12 +1,11 @@
 'use client';
 
-import NavBar from '../components/NavBar';
+import { Box } from '@mui/material';
 
 export default function ContateNos() {
   return (
-    <>
-      <NavBar />
-      <div>ContateNos</div>;
-    </>
+    <Box>
+      <div>ContateNos</div>
+    </Box>
   );
 }

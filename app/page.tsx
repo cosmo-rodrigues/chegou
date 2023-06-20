@@ -26,7 +26,6 @@ export default function Home() {
 
   return (
     <main>
-      <NavBar />
       <ol>
         {veiculo.loading ? (
           <h1>Loading...</h1>

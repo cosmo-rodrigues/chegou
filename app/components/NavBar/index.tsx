@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import {
   AppBar,
+  Container,
   Tab,
   Tabs,
   Toolbar,
@@ -32,53 +33,53 @@ const NavBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar color='primary'>
-        <Toolbar>
-          <Typography
-            onClick={() => handleCloseNavMenu('/')}
-            sx={{ fontSize: '2rem', paddingLeft: '10%', cursor: 'pointer' }}
-          >
-            CheGou
-          </Typography>
-          {isMatch ? (
-            <DrawerComp openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-          ) : (
-            <>
-              <Tabs
-                sx={{ marginLeft: 'auto' }}
-                indicatorColor='secondary'
-                textColor='inherit'
-                value={tabValue}
-                onChange={(e, value) => setTabValue(value)}
-              >
-                <Tab
-                  label='RASTREAR'
-                  onClick={() => handleCloseNavMenu('/rastrear')}
-                />
-                <Tab
-                  label='COTAR'
-                  onClick={() => handleCloseNavMenu('/cotar')}
-                />
-                <Tab
-                  label='ENVIAR'
-                  onClick={() => handleCloseNavMenu('/enviar')}
-                />
-                <Tab
-                  label='CONTATE-NOS'
-                  onClick={() => handleCloseNavMenu('/contate-nos')}
-                />
-              </Tabs>
-              <VipButton
-                sx={{ marginLeft: 'auto' }}
-                variant='contained'
-                startIcon={<Login />}
-              >
-                ÁREA VIP
-              </VipButton>
-            </>
-          )}
-          <NightModeToggle />
-        </Toolbar>
+      <AppBar color='primary' position='static'>
+        <Container maxWidth='xl'>
+          <Toolbar>
+            <Typography
+              onClick={() => handleCloseNavMenu('/')}
+              sx={{ fontSize: '2rem', paddingLeft: '10%', cursor: 'pointer' }}
+            >
+              CheGou
+            </Typography>
+            {isMatch ? (
+              <DrawerComp
+                openDrawer={openDrawer}
+                setOpenDrawer={setOpenDrawer}
+                handleCloseNavMenu={handleCloseNavMenu}
+              />
+            ) : (
+              <>
+                <Tabs
+                  sx={{ marginLeft: 'auto' }}
+                  indicatorColor='secondary'
+                  textColor='inherit'
+                  value={tabValue}
+                  onChange={(e, value) => setTabValue(value)}
+                >
+                  <Tab
+                    label='RASTREAR'
+                    onClick={() => handleCloseNavMenu('/rastrear')}
+                  />
+                  <Tab
+                    label='COTAR'
+                    onClick={() => handleCloseNavMenu('/cotar')}
+                  />
+                  <Tab
+                    label='ENVIAR'
+                    onClick={() => handleCloseNavMenu('/enviar')}
+                  />
+                  <Tab
+                    label='CONTATE-NOS'
+                    onClick={() => handleCloseNavMenu('/contate-nos')}
+                  />
+                </Tabs>
+                <VipButton />
+              </>
+            )}
+            <NightModeToggle />
+          </Toolbar>
+        </Container>
       </AppBar>
     </React.Fragment>
   );

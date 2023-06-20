@@ -1,12 +1,11 @@
 'use client';
 
-import NavBar from '../components/NavBar';
+import { Box } from '@mui/material';
 
 export default function Enviar() {
   return (
-    <>
-      <NavBar />
-      <div>Rastrear</div>;
-    </>
+    <Box>
+      <div>Rastrear</div>
+    </Box>
   );
 }
