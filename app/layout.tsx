@@ -1,20 +1,17 @@
 'use client';
 
-import {
-  ThemeContextProvider,
-  useThemeContext,
-} from './context/ThemeContextProvider';
+import { ThemeContextProvider } from './context/ThemeContextProvider';
 import './globals.css';
 
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import { Providers } from './storeProvider';
+import { PageTabContextProvider } from './context/PageTabContextProvider';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { theme } = useThemeContext();
-
   return (
     <html lang='en'>
       <head>
@@ -24,12 +21,12 @@ export default function RootLayout({
         <link rel='icon' href='/favicon.ico' />
       </head>
       <ThemeContextProvider>
-        <ThemeProvider theme={theme}>
-          <body id='__next'>
-            {/* <CssBaseline /> */}
-            {children}
-          </body>
-        </ThemeProvider>
+        <body id='__next' suppressHydrationWarning={true}>
+          <PageTabContextProvider>
+            <CssBaseline />
+            <Providers>{children}</Providers>
+          </PageTabContextProvider>
+        </body>
       </ThemeContextProvider>
     </html>
   );

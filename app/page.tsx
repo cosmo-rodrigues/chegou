@@ -1,28 +1,44 @@
 'use client';
 
-import { Button, Grid, Stack, Typography } from '@mui/material';
-import NightModeToggle from './components/NightModeToggle';
+import { useEffect, useRef } from 'react';
+import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
+import { fetchVeiculos } from './store/actions/veiculo';
+import NavBar from './components/NavBar';
+
 export default function Home() {
+  // const cliente = useAppSelector((state) => state.cliente);
+  // const condutor = useAppSelector((state) => state.condutor);
+  const deslocamento = useAppSelector((state) => state.deslocamento);
+  const veiculo = useAppSelector((state) => state.veiculo);
+  const ref = useRef(false);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (!ref.current) {
+      // dispatch(fetchClientes());
+      dispatch(fetchVeiculos());
+    }
+
+    return () => {
+      ref.current = true;
+    };
+  }, []);
+
   return (
-    <Grid
-      container
-      height='100vh'
-      alignItems='center'
-      justifyContent='center'
-      direction='column'
-    >
-      <Typography variant='h2' className='text-blue-500'>
-        Using Material UI with Next.js 13
-      </Typography>
-      <h4 className='text-red-500'>(with Tailwind CSS)</h4>
-      <Stack direction='row' columnGap={1}>
-        <Button variant='text' className='text-red-500'>
-          Text
-        </Button>
-        <Button variant='contained'>Contained</Button>
-        <Button variant='outlined'>Outlined</Button>
-        <NightModeToggle />
-      </Stack>
-    </Grid>
+    <main>
+      <NavBar />
+      <ol>
+        {veiculo.loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            <h1>veiculos</h1>
+            {veiculo.veiculos.map((client) => (
+              <li key={client.id}>{client.marcaModelo}</li>
+            ))}
+          </>
+        )}
+      </ol>
+    </main>
   );
 }
