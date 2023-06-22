@@ -11,7 +11,7 @@ import {
 } from 'react';
 
 interface ContextProps {
-  tabValue: number;
+  tabValue: number | undefined;
   setTabValue: Dispatch<SetStateAction<number>>;
 }
 
@@ -21,7 +21,7 @@ const GlobalContext = createContext<ContextProps>({
 });
 
 export const PageTabContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [tabValue, setTabValue] = useState(0);
+  const [tabValue, setTabValue] = useState(5);
 
   return (
     <GlobalContext.Provider value={{ tabValue, setTabValue }}>

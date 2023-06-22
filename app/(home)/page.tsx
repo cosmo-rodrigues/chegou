@@ -1,9 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
-import { fetchVeiculos } from './store/actions/veiculo';
-import NavBar from './components/NavBar';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { fetchVeiculos } from '../store/actions/veiculo';
 
 export default function Home() {
   // const cliente = useAppSelector((state) => state.cliente);
