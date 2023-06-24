@@ -20,7 +20,7 @@ import NightModeToggle from '../NightModeToggle';
 import { usePageTabContext } from '@/app/context/PageTabContextProvider';
 
 const NavBar = () => {
-  const { setTabValue, tabValue } = usePageTabContext();
+  const { tabValue } = usePageTabContext();
   const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
@@ -36,12 +36,6 @@ const NavBar = () => {
       <AppBar color='primary' position='static'>
         <Container maxWidth='xl'>
           <Toolbar>
-            <Typography
-              onClick={() => handleCloseNavMenu('/')}
-              sx={{ fontSize: '2rem', paddingLeft: '10%', cursor: 'pointer' }}
-            >
-              CheGou
-            </Typography>
             {isMatch ? (
               <DrawerComp
                 openDrawer={openDrawer}
@@ -55,8 +49,8 @@ const NavBar = () => {
                   indicatorColor='secondary'
                   textColor='inherit'
                   value={tabValue}
-                  onChange={(e, value) => setTabValue(value)}
                 >
+                  <Tab label='INÍCIO' onClick={() => handleCloseNavMenu('/')} />
                   <Tab
                     label='RASTREAR'
                     onClick={() => handleCloseNavMenu('/rastrear')}

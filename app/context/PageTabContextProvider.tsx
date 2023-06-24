@@ -21,7 +21,7 @@ const GlobalContext = createContext<ContextProps>({
 });
 
 export const PageTabContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [tabValue, setTabValue] = useState(5);
+  const [tabValue, setTabValue] = useState(0);
 
   return (
     <GlobalContext.Provider value={{ tabValue, setTabValue }}>

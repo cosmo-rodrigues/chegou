@@ -11,6 +11,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export const pages = [
   {
+    title: 'INÍCIO',
+    link: '/',
+  },
+  {
     title: 'RASTREAR',
     link: '/rastrear',
   },

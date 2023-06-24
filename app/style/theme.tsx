@@ -1,7 +1,7 @@
 'use client';
 
 import { PaletteMode } from '@mui/material';
-import { amber, blue, red, blueGrey } from '@mui/material/colors';
+import { amber, blue, red, blueGrey, grey } from '@mui/material/colors';
 import { Roboto } from 'next/font/google';
 
 export const roboto = Roboto({
@@ -24,27 +24,39 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       ? {
           // palette values for light mode
           primary: {
-            main: blue[900],
+            main: '#0079FF',
+            default: '#fcfcfc',
           },
           secondary: {
-            main: red[500],
+            main: '#FF0060',
+            default: '#F6FA70',
           },
           background: {
             default: blue[50],
             paper: blue[50],
           },
+          text: {
+            primary: grey[900],
+            secondary: grey[800],
+          },
         }
       : {
           // palette values for dark mode
           primary: {
-            main: blue[900],
+            main: '#0B2447',
+            default: '#19376D',
           },
           secondary: {
-            main: red[500],
+            main: '#576CBC',
+            default: '#A5D7E8',
           },
           background: {
-            default: blueGrey[900],
-            paper: blueGrey[900],
+            default: '#0B2447',
+            paper: '#19376D',
+          },
+          text: {
+            primary: '#fff',
+            secondary: grey[200],
           },
         }),
   },
